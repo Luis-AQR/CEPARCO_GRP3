@@ -92,5 +92,5 @@ References:
 
 
 AI Disclosure:
-Visual Studio Copilot - Used as a sanity check on the code output.
-Grammarly - Used in editing the README.md files for proper grammar.
+* Visual Studio Copilot - Used as a sanity check on the code output.
+* Grammarly - Used in editing the README.md files for proper grammar.
