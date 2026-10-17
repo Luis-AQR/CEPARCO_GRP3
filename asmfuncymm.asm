@@ -1,5 +1,4 @@
 ; assembly part using x86-64 YMM registers
-section .data
 
 section .text
 default rel ; to handle address relocation
