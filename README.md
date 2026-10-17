@@ -17,42 +17,50 @@ The kernel is implemented across four distinct versions:
 
 ---
 
-## Program Output with Execution Time (All Cases)
+## Program Output with Execution Time and Correctness (All Cases)
 [Insert screenshot/s here]
-### C Reference Kernel n = 1003
+### C Reference Kernel **$n = 1003$** (Boundary)
 ![1003-C](images/1003-C.png)
-### C Reference Kernel n = 1,048,576
+### C Reference Kernel **$n = 2^{20}$** ($1,048,576$)
 ![1048576-C](images/1048576-C.png)
-### C Reference Kernel n = 67,108,864
+### C Reference Kernel **$n = 2^{20}$ +7** ($1,048,583$) (Boundary)
+![1048583-C](images/1048583-C.png)
+### C Reference Kernel **$n = 2^{26}$** ($67,108,864$)
 ![67108864-C](images/67108864-C.png)
-### C Reference Kernel n = 268,435,456
+### C Reference Kernel **$n = 2^{28}$** ($268,435,456$)
 ![268435456-C](images/268435456-C.png)
 
-### x86-64 Kernel n = 1003
+### x86-64 Kernel **$n = 1003$** (Boundary)
 ![1003-x86-64](images/1003-x86-64.png)
-### x86-64 Kernel n = 1,048,576
+### x86-64 Kernel **$n = 2^{20}$** ($1,048,576$)
 ![1048576-x86-64](images/1048576-x86-64.png)
-### x86-64 Kernel n = 67,108,864
+### x86-64 Kernel **$n = 2^{20}$ +7** ($1,048,583$) (Boundary)
+![1048583-x86-64](images/1048583-x86-64.png)
+### x86-64 Kernel **$n = 2^{26}$** ($67,108,864$)
 ![67108864-x86-64](images/67108864-x86-64.png)
-### x86-64 Kernel n = 268,435,456
+### x86-64 Kernel **$n = 2^{28}$** ($268,435,456$)
 ![268435456-x86-64](images/268435456-x86-64.png)
 
-### SIMD XMM Kernel n = 1003
+### SIMD XMM Kernel **$n = 1003$** (Boundary)
 ![1003-xmm](images/1003-xmm.png)
-### SIMD XMM Kernel n = 1,048,576
+### SIMD XMM Kernel **$n = 2^{20}$** ($1,048,576$)
 ![1048576-xmm](images/1048576-xmm.png)
-### SIMD XMM Kernel n = 67,108,864
+### XMM **$n = 2^{20}$ +7** ($1,048,583$) (Boundary)
+![1048583-xmm](images/1048583-xmm.png)
+### SIMD XMM Kernel **$n = 2^{26}$** ($67,108,864$)
 ![67108864-xmm](images/67108864-xmm.png)
-### SIMD XMM Kernel n = 268,435,456
+### SIMD XMM Kernel **$n = 2^{28}$** ($268,435,456$)
 ![268435456-xmm](images/268435456-xmm.png)
 
-### SIMD YMM Kernel n = 1003
+### SIMD YMM Kernel **$n = 1003$** (Boundary)
 ![1003-ymm](images/1003-ymm.png)
-### SIMD YMM Kernel n = 1,048,576
+### SIMD YMM Kernel **$n = 2^{20}$** ($1,048,576$)
 ![1048576-ymm](images/1048576-ymm.png)
-### SIMD YMM Kernel n = 67,108,864
+### YMM **$n = 2^{20}$ +7** ($1,048,583$) (Boundary)
+![1048583-ymm](images/1048583-ymm.png)
+### SIMD YMM Kernel **$n = 2^{26}$** ($67,108,864$)
 ![67108864-ymm](images/67108864-ymm.png)
-### SIMD YMM Kernel n = 268,435,456
+### SIMD YMM Kernel **$n = 2^{28}$** ($268,435,456$)
 ![268435456-ymm](images/268435456-ymm.png)
 ---
 
@@ -80,25 +88,6 @@ The kernel is implemented across four distinct versions:
 * For large vector sizes, data arrays exceed CPU L1/L2/L3 cache sizes. 
 * Boundary sizes add non-vectorized instructions to every pass.
   
----
-
-## Program Output with Correctness (All Cases)
-
-### 1. C
-[Insert screenshot/s here]
-
-### 2. x86-64 Scalar Assembly vs C
-[Insert screenshot/s here]
-
-### 3. SIMD XMM Register vs C
-[Insert screenshot/s here]
-
-### 4. SIMD YMM Register vs C
-[Insert screenshot/s here]
-
-### 5. Boundary Condition (SIMD XMM & SIMD YMM)
-[Insert screenshot/s here]
-
 ---
 
 ## Problems Encountered, AHA moments
