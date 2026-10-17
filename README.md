@@ -22,63 +22,38 @@ The kernel is implemented across four distinct versions:
 ### C Reference Kernel n = 1003
 ![1003-C](images/1003-C.png)
 ### C Reference Kernel n = 1,048,576
-![1003-C](images/1048576-C.png)
+![1048576-C](images/1048576-C.png)
 ### C Reference Kernel n = 67,108,864
-![1003-C](images/67108864-C.png)
+![67108864-C](images/67108864-C.png)
 ### C Reference Kernel n = 268,435,456
-![1003-C](images/268435456-C.png)
+![268435456-C](images/268435456-C.png)
 
 ### x86-64 Kernel n = 1003
-![1003-C](images/1003-x86-64.png)
+![1003-x86-64](images/1003-x86-64.png)
 ### x86-64 Kernel n = 1,048,576
-![1003-C](images/1048576-x86-64.png)
+![1048576-x86-64](images/1048576-x86-64.png)
 ### x86-64 Kernel n = 67,108,864
-![1003-C](images/67108864-x86-64.png)
+![67108864-x86-64](images/67108864-x86-64.png)
 ### x86-64 Kernel n = 268,435,456
-![1003-C](images/268435456-x86-64.png)
+![268435456-x86-64](images/268435456-x86-64.png)
 
 ### SIMD XMM Kernel n = 1003
-![1003-C](images/1003-xmm.png)
+![1003-xmm](images/1003-xmm.png)
 ### SIMD XMM Kernel n = 1,048,576
-![1003-C](images/1048576-xmm.png)
+![1048576-xmm](images/1048576-xmm.png)
 ### SIMD XMM Kernel n = 67,108,864
-![1003-C](images/67108864-xmm.png)
+![67108864-xmm](images/67108864-xmm.png)
 ### SIMD XMM Kernel n = 268,435,456
-![1003-xmm](images/268435456-xmm.png)
+![268435456-xmm](images/268435456-xmm.png)
 
-
-**1003 C** 
-
-![Alt text](images/1003-C.png)
-
-**1003 x86-64** 
-
-![Alt text](images/1003-x86-64.png)
-
-**1003 XMM**
-
-![Alt text](images/1003-xmm.png)
-
-**1003 YMM**
-
-![Alt text](images/1003-ymm.png)
-
-**1048583 C**
-
-![Alt text](images/1048583-C.png)
-
-**1048583 x86-64**
-
-![Alt text](images/1048583-x86-64.png)
-
-**1048583 XMM**
-
-![Alt text](images/1048583-xmm.png)
-
-**1048583 YMM**
-
-![Alt text](images/1048583-ymm.png)
-
+### SIMD YMM Kernel n = 1003
+![1003-ymm](images/1003-ymm.png)
+### SIMD YMM Kernel n = 1,048,576
+![1048576-ymm](images/1048576-ymm.png)
+### SIMD YMM Kernel n = 67,108,864
+![67108864-ymm](images/67108864-ymm.png)
+### SIMD YMM Kernel n = 268,435,456
+![268435456-ymm](images/268435456-ymm.png)
 ---
 
 ## Comparative Performance Table
