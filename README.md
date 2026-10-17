@@ -28,6 +28,25 @@ The kernel is implemented across four distinct versions:
 ### C Reference Kernel n = 268,435,456
 ![1003-C](images/268435456-C.png)
 
+### x86-64 Kernel n = 1003
+![1003-C](images/1003-x86-64.png)
+### x86-64 Kernel n = 1,048,576
+![1003-C](images/1048576-x86-64.png)
+### x86-64 Kernel n = 67,108,864
+![1003-C](images/67108864-x86-64.png)
+### x86-64 Kernel n = 268,435,456
+![1003-C](images/268435456-x86-64.png)
+
+### SIMD XMM Kernel n = 1003
+![1003-C](images/1003-xmm.png)
+### SIMD XMM Kernel n = 1,048,576
+![1003-C](images/1048576-xmm.png)
+### SIMD XMM Kernel n = 67,108,864
+![1003-C](images/67108864-xmm.png)
+### SIMD XMM Kernel n = 268,435,456
+![1003-xmm](images/268435456-xmm.png)
+
+
 **1003 C** 
 
 ![Alt text](images/1003-C.png)
