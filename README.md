@@ -27,16 +27,25 @@ The kernel is implemented across four distinct versions:
 
 | Vector Size ($n$) | C Kernel (ms) | x86-64 Assembly (ms) | SIMD XMM (ms) | SIMD YMM (ms) | Speedup (YMM vs C) |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **$n = 1,003$** (Boundary)[cite: 1] | `[Insert]` | `[Insert]` | `[Insert]` | `[Insert]` | `[Insert]` |
-| **$n = 2^{20}$** ($1,048,576$)[cite: 1] | `[Insert]` | `[Insert]` | `[Insert]` | `[Insert]` | `[Insert]` |
-| **$n = 2^{26}$** ($67,108,864$)[cite: 1] | `[Insert]` | `[Insert]` | `[Insert]` | `[Insert]` | `[Insert]` |
-| **$n = 2^{28}$** ($268,435,456$)[cite: 1] | `[Insert]` | `[Insert]` | `[Insert]` | `[Insert]` | `[Insert]` |
+| **$n = 1,003$** (Boundary) | `[Insert]` | `[Insert]` | `[Insert]` | `[Insert]` | `[Insert]` |
+| **$n = 2^{20}$** ($1,048,576$) | `[Insert]` | `[Insert]` | `[Insert]` | `[Insert]` | `[Insert]` |
+| **$n = 2^{26}$** ($67,108,864$) | `[Insert]` | `[Insert]` | `[Insert]` | `[Insert]` | `[Insert]` |
+| **$n = 2^{28}$** ($268,435,456$) | `[Insert]` | `[Insert]` | `[Insert]` | `[Insert]` | `[Insert]` |
 
 ---
 
 ## Performance Analysis and Discussion
-[Insert answers here]
 
+### 1. Which platform is fastest and why?
+* Fastest Kernel - SIMD YMM Assembly showed the fastest performance across all test vector sizes.
+* It is faster because the C & x86-64 Scalar Assembly process only 1 float per loop iteration. While the SIMD XMM Assembly processes 4 floats in parallel per instruction. On the other hand, SIMD YMM Assembly processes 8 floats in parallel per instruction, doubling the throughput of XMM and quadrupling scalar operations per cycle.
+
+### 2. Why is speedup not comparable with theoretical limits?
+* Memory-Bound Bottleneck - Vector AXPY performs only 2 floating-point operations, which are multiplication and addition, for every 3 memory accesses.
+* SIMD instructions process math faster than system RAM can supply input data or write back output data. The CPU spends cycles idling while waiting for memory transfers.
+* For large vector sizes, data arrays exceed CPU L1/L2/L3 cache sizes. 
+* Boundary sizes add non-vectorized instructions to every pass.
+  
 ---
 
 ## Program Output with Correctness (All Cases)
