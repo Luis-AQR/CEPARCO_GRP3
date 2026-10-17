@@ -18,9 +18,15 @@ The kernel is implemented across four distinct versions:
 ---
 
 ## Program Output with Execution Time (All Cases)
-
 [Insert screenshot/s here]
-
+### C Reference Kernel n = 1003
+![1003-C](images/1003-C.png)
+### C Reference Kernel n = 1,048,576
+![1003-C](images/1048576-C.png)
+### C Reference Kernel n = 67,108,864
+![1003-C](images/67108864-C.png)
+### C Reference Kernel n = 268,435,456
+![1003-C](images/268435456-C.png)
 ---
 
 ## Comparative Performance Table
