@@ -82,8 +82,21 @@ void run_test(int n, float a) {
     print_samples("C Vector Z", Z_c, n);
 
     // Assembly Kernel Execution
+    double total_asm_time = 0.0;
+    for (run = 0; run < NUM_RUNS; run++) {
+        QueryPerformanceCounter(&start);
+        axpy_asm(n, a, X, Y, Z_asm);
+        QueryPerformanceCounter(&end);
+        total_asm_time += (double)(end.QuadPart - start.QuadPart) / frequency.QuadPart;
+    }
+    double avg_asm_time = (total_asm_time / NUM_RUNS) * 1000.0;
+
     printf("\nx86-64 Assembly Version:\n");
 
+    printf("Time = %.6f ms\n", avg_asm_time);
+    print_samples("ASM Vector Z", Z_asm, n);
+    compare(Z_c, Z_asm, n);
+   
     // SIMD XMM Assembly Kernel Execution
     printf("\nSIMD XMM Version:\n");
 
