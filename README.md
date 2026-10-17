@@ -19,7 +19,37 @@ The kernel is implemented across four distinct versions:
 
 ## Program Output with Execution Time (All Cases)
 
-[Insert screenshot/s here]
+**1003 C** 
+
+![Alt text](1003-C.png)
+
+**1003 x86-64** 
+
+![Alt text](1003-x86-64.png)
+
+**1003 XMM**
+
+![Alt text](1003-xmm.png)
+
+**1003 YMM**
+
+![Alt text](1003-ymm.png)
+
+**1048583 C**
+
+![Alt text](1048583-C.png)
+
+**1048583 x86-64**
+
+![Alt text](1048583-x86-64.png)
+
+**1048583 XMM**
+
+![Alt text](1048583-xmm.png)
+
+**1048583 YMM**
+
+![Alt text](1048583-ymm.png)
 
 ---
 
