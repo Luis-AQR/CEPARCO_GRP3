@@ -27,10 +27,10 @@ The kernel is implemented across four distinct versions:
 
 | Vector Size ($n$) | C Kernel (ms) | x86-64 Assembly (ms) | SIMD XMM (ms) | SIMD YMM (ms) | Speedup (YMM vs C) |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **$n = 1,003$** (Boundary) | `[Insert]` | `[Insert]` | `[Insert]` | `[Insert]` | `[Insert]` |
-| **$n = 2^{20}$** ($1,048,576$) | `[Insert]` | `[Insert]` | `[Insert]` | `[Insert]` | `[Insert]` |
-| **$n = 2^{26}$** ($67,108,864$) | `[Insert]` | `[Insert]` | `[Insert]` | `[Insert]` | `[Insert]` |
-| **$n = 2^{28}$** ($268,435,456$) | `[Insert]` | `[Insert]` | `[Insert]` | `[Insert]` | `[Insert]` |
+| **$n = 1,003$** (Boundary) | `0.001797` | `0.000613` | `0.000163` | `0.000130` | `[Insert]` |
+| **$n = 2^{20}$** ($1,048,576$) | `1.675427 ` | `0.455383` | `0.321163` | `0.309597` | `[Insert]` |
+| **$n = 2^{26}$** ($67,108,864$) | `77.092607 ` | `32.026973` | `30.143637` | `28.776590` | `[Insert]` |
+| **$n = 2^{28}$** ($268,435,456$) | `304.305600 ` | `136.813463` | `136.080070` | `146.672460` | `[Insert]` |
 
 ---
 
