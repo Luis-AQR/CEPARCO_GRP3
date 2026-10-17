@@ -1,9 +1,9 @@
 # CEPARCO_GRP3
 ## Members:
-Alcasid, Aizy
-Bilanes, Kendrick
-Corpuz, Gerald
-Roa, Luis
+* Alcasid, Aizy
+* Bilanes, Kendrick
+* Corpuz, Gerald
+* Roa, Luis
 
 # Vector AXPY Kernel Optimization (C, x86-64, SIMD XMM, SIMD YMM)
 
@@ -72,7 +72,7 @@ Floating-Point Precision at High Values of n:
 AHAness:
 
 Is this memory-bound or compute-bound?
-* Memory-Bound - The AXPY kernel performs only 2 floating-point operations, which are multiplication and addition, for every 3 memory accesses. This means that memory bandwidth is the primary performance bottleneck rather than CPU ALU cycles.
+* Memory-Bound - The AXPY kernel performs only 2 floating-point operations, which are multiplication and addition, for every 3 memory accesses. This means memory bandwidth, not CPU ALU cycles, is the primary performance bottleneck.
   
 Will SIMD YMM be faster than optimized C?
 * Debug: Yes, YMM assembly is significantly faster because debug builds disable compiler auto-vectorization.
@@ -83,7 +83,5 @@ References:
 
 
 AI Disclosure:
-Visual Studio Copilot - Used as a sanity check on the output results of the code.
+Visual Studio Copilot - Used as a sanity check on the code output.
 Grammarly - Used in editing the README.md files for proper grammar.
-* **Windows x64 Calling Convention**:
-  * Windows x64 ABI passes parameter 1 ($n$) in `RCX`, parameter 2 ($a$) in `XMM1`, parameter 3 ($X$) in `R8`, parameter 4 ($Y$) in `R9`, and parameter 5 ($Z$) on the stack at `[rsp + 40]`[cite: 3]. Careful register preservation was required to maintain stack alignment.
