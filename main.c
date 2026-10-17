@@ -5,6 +5,7 @@
 
 #define NUM_RUNS 30 // Minimum 30 runs
 
+extern void axpy_asm(int n, float a, const float* X, const float* Y, float* Z);
 extern void axpy_ymm(int n, float a, const float* X, const float* Y, float* Z);
 
 // C Kernel
