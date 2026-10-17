@@ -18,7 +18,6 @@ The kernel is implemented across four distinct versions:
 ---
 
 ## Program Output with Execution Time and Correctness (All Cases)
-[Insert screenshot/s here]
 ### C Reference Kernel **$n = 1003$** (Boundary)
 ![1003-C](images/1003-C.png)
 ### C Reference Kernel **$n = 2^{20}$** ($1,048,576$)
@@ -110,8 +109,8 @@ Will SIMD YMM be faster than optimized C?
 * Debug: Yes, YMM assembly is significantly faster because debug builds disable compiler auto-vectorization.
 * Release: Optimized C reaches close to YMM performance because MSVC auto-vectorizes loops using SIMD instructions.
 
-## References and AI Disclosure [Add nlang if meron kayo ginamit, REMOVE THIS AND ANY OTHER UNNEEDED COMMENTS BEFORE SUBMITTING]
-References:
+## AI Disclosure
+
 
 
 AI Disclosure:
