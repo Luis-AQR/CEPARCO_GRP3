@@ -5,6 +5,7 @@
 
 #define NUM_RUNS 30 // Minimum 30 runs
 
+extern void axpy_ymm(int n, float a, const float* X, const float* Y, float* Z);
 
 // C Kernel
 void axpy_c(int n, float a, const float* X, const float* Y, float* Z) {
@@ -30,10 +31,10 @@ void compare(float ref[], float target[], int size) {
 
 // Prints elements (First 5 and Last 5)
 void print_samples(const char* kernel_name, float Z[], int n) {
-    printf("%s Elements:\n  First 5: %.4f %.4f %.4f %.4f %.4f\n", 
-           kernel_name, Z[0], Z[1], Z[2], Z[3], Z[4]);
-    printf("  Last 5:  %.4f %.4f %.4f %.4f %.4f\n", 
-           Z[n - 5], Z[n - 4], Z[n - 3], Z[n - 2], Z[n - 1]);
+    printf("%s Elements:\n  First 5: %.4f %.4f %.4f %.4f %.4f\n",
+        kernel_name, Z[0], Z[1], Z[2], Z[3], Z[4]);
+    printf("  Last 5:  %.4f %.4f %.4f %.4f %.4f\n",
+        Z[n - 5], Z[n - 4], Z[n - 3], Z[n - 2], Z[n - 1]);
 }
 
 // Testbench
@@ -82,13 +83,24 @@ void run_test(int n, float a) {
 
     // Assembly Kernel Execution
     printf("\nx86-64 Assembly Version:\n");
-   
+
     // SIMD XMM Assembly Kernel Execution
     printf("\nSIMD XMM Version:\n");
-    
+
     // SIMD YMM Assembly Kernel Execution
+    double total_ymm_time = 0.0;
+    for (run = 0; run < NUM_RUNS; run++) {
+        QueryPerformanceCounter(&start);
+        axpy_ymm(n, a, X, Y, Z_asm);
+        QueryPerformanceCounter(&end);
+        total_ymm_time += (double)(end.QuadPart - start.QuadPart) / frequency.QuadPart;
+    }
+    double avg_ymm_time = (total_ymm_time / NUM_RUNS) * 1000.0;
+
     printf("\nSIMD YMM Version:\n");
-   
+    printf("Time = %.6f ms\n", avg_ymm_time);
+    print_samples("YMM Vector Z", Z_asm, n);
+
     // Cleans the vectors
     free(X);
     free(Y);
