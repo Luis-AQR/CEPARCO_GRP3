@@ -24,12 +24,12 @@ axpy_ymm:
 	vaddps ymm0, ymm0, ymm3		; Z = Z + Y
 	vmovups [r10+rax*4], ymm0	; store Z back to memory
 
-	add rax, 8					; increment
+	add rax, 8 					; increment
 	jmp .loop
 
 ; for edge cases where the number of elements is not a multiple of 8
 .edge:
-	cmp rax, rdx
+	cmp rax, rcx       ; i < n (use the full n)
 	jge .done
 
 	vmovss xmm2, [r8+rax*4]		; xmm2 = remaining X

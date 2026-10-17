@@ -7,6 +7,7 @@
 
 extern void axpy_asm(int n, float a, const float* X, const float* Y, float* Z);
 extern void axpy_ymm(int n, float a, const float* X, const float* Y, float* Z);
+extern void axpy_xmm(int n, float a, const float* X, const float* Y, float* Z);
 
 // C Kernel
 void axpy_c(int n, float a, const float* X, const float* Y, float* Z) {
@@ -51,9 +52,13 @@ void run_test(int n, float a) {
     float* Y = (float*)malloc(bytes);
     float* Z_c = (float*)malloc(bytes);
     float* Z_asm = (float*)malloc(bytes);
+    float* Z_ymm = (float*)malloc(bytes);
+    float* Z_xmm = (float*)malloc(bytes);
 
     if (!X || !Y || !Z_c || !Z_asm) {
         printf("Memory allocation failed!\n");
+        return;
+        free(X); free(Y); free(Z_c); free(Z_asm); free(Z_ymm);
         return;
     }
 
@@ -63,6 +68,8 @@ void run_test(int n, float a) {
         Y[i] = cosf(i * 0.002f);
         Z_c[i] = 0.0f;
         Z_asm[i] = 0.0f;
+        Z_ymm[i] = 0.0f;
+        Z_xmm[i] = 0.0f;
     }
 
     LARGE_INTEGER frequency, start, end;
@@ -97,15 +104,27 @@ void run_test(int n, float a) {
     printf("Time = %.6f ms\n", avg_asm_time);
     print_samples("ASM Vector Z", Z_asm, n);
     compare(Z_c, Z_asm, n);
-   
+
     // SIMD XMM Assembly Kernel Execution
     printf("\nSIMD XMM Version:\n");
+    double total_xmm_time = 0.0;
+    for (run = 0; run < NUM_RUNS; run++) {
+        QueryPerformanceCounter(&start);
+        axpy_xmm(n, a, X, Y, Z_xmm);
+        QueryPerformanceCounter(&end);
+        total_xmm_time += (double)(end.QuadPart - start.QuadPart) / frequency.QuadPart;
+    }
+    double avg_xmm_time = (total_xmm_time / NUM_RUNS) * 1000.0;
+
+    printf("Time = %.6f ms\n", avg_xmm_time);
+    print_samples("XMM Vector Z", Z_xmm, n);
+    compare(Z_c, Z_xmm, n);
 
     // SIMD YMM Assembly Kernel Execution
     double total_ymm_time = 0.0;
     for (run = 0; run < NUM_RUNS; run++) {
         QueryPerformanceCounter(&start);
-        axpy_ymm(n, a, X, Y, Z_asm);
+        axpy_ymm(n, a, X, Y, Z_ymm);
         QueryPerformanceCounter(&end);
         total_ymm_time += (double)(end.QuadPart - start.QuadPart) / frequency.QuadPart;
     }
@@ -113,13 +132,16 @@ void run_test(int n, float a) {
 
     printf("\nSIMD YMM Version:\n");
     printf("Time = %.6f ms\n", avg_ymm_time);
-    print_samples("YMM Vector Z", Z_asm, n);
+    print_samples("YMM Vector Z", Z_ymm, n);
+    compare(Z_c, Z_ymm, n);
 
     // Cleans the vectors
     free(X);
     free(Y);
     free(Z_c);
     free(Z_asm);
+    free(Z_ymm);
+    free(Z_xmm);
 }
 
 // Main
