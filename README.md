@@ -21,35 +21,35 @@ The kernel is implemented across four distinct versions:
 
 **1003 C** 
 
-![Alt text](1003-C.png)
+![Alt text](images/1003-C.png)
 
 **1003 x86-64** 
 
-![Alt text](1003-x86-64.png)
+![Alt text](images/1003-x86-64.png)
 
 **1003 XMM**
 
-![Alt text](1003-xmm.png)
+![Alt text](images/1003-xmm.png)
 
 **1003 YMM**
 
-![Alt text](1003-ymm.png)
+![Alt text](images/1003-ymm.png)
 
 **1048583 C**
 
-![Alt text](1048583-C.png)
+![Alt text](images/1048583-C.png)
 
 **1048583 x86-64**
 
-![Alt text](1048583-x86-64.png)
+![Alt text](images/1048583-x86-64.png)
 
 **1048583 XMM**
 
-![Alt text](1048583-xmm.png)
+![Alt text](images/1048583-xmm.png)
 
 **1048583 YMM**
 
-![Alt text](1048583-ymm.png)
+![Alt text](images/1048583-ymm.png)
 
 ---
 
