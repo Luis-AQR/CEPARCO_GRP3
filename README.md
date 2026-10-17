@@ -27,6 +27,39 @@ The kernel is implemented across four distinct versions:
 ![1003-C](images/67108864-C.png)
 ### C Reference Kernel n = 268,435,456
 ![1003-C](images/268435456-C.png)
+
+**1003 C** 
+
+![Alt text](images/1003-C.png)
+
+**1003 x86-64** 
+
+![Alt text](images/1003-x86-64.png)
+
+**1003 XMM**
+
+![Alt text](images/1003-xmm.png)
+
+**1003 YMM**
+
+![Alt text](images/1003-ymm.png)
+
+**1048583 C**
+
+![Alt text](images/1048583-C.png)
+
+**1048583 x86-64**
+
+![Alt text](images/1048583-x86-64.png)
+
+**1048583 XMM**
+
+![Alt text](images/1048583-xmm.png)
+
+**1048583 YMM**
+
+![Alt text](images/1048583-ymm.png)
+
 ---
 
 ## Comparative Performance Table
